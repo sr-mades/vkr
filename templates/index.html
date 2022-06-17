@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз параметров композитов</title>
+    <style>
+        .field {clear:both; text-align:right; margin: 5px;}
+        label {float:left;}
+        .main {float:left}
+    </style>
+</head>
+<body>
+ <form action="{{url_for('index')}}" method="post">
+      <div><label>Параметр для прогнозирования:</label></div>
+      <p><select disabled>
+           <option value="v1">Соотношение матрица-наполнитель</option>
+           <option value="v2">Модуль упругости при растяжении, ГПа</option>
+           <option value="v3">Прочность при растяжении, МПа</option>
+      </select></p>
+      <fieldset style="background:#e1eff2;">
+        <legend style="padding:20px 0; font-size:20px;">Введите данные композитов:</legend>
+        <div class="main">
+            <div class="field"><label>Соотношение матрица-наполнитель:</label><input name="1" type="namber" disabled></div>
+
+          <div class="field"><label>Плотность, кг/м3:</label><input name="2" type="namber" required></div>
+          <div class="field"><label>модуль упругости, ГПа:</label><input name="3" type="namber" required></div>
+          <div class="field"><label>Количество отвердителя, м.%:</label><input name="4" type="namber" required></div>
+          <div class="field"><label>Содержание эпоксидных групп,%_2:</label><input name="5" type="namber" required></div>
+          <div class="field"><label>Температура вспышки, С_2:</label><input name="6" type="namber" required></div>
+          <div class="field"><label>Поверхностная плотность, г/м2:</label><input name="7" type="namber" required></div><div class="field"><label>Модуль упругости при растяжении, ГПа:</label><input name="8" type="namber" required></div>
+          <div class="field"><label>Прочность при растяжении, МПа:</label><input name="9" type="namber" required></div>
+          <div class="field"><label>Потребление смолы, г/м2:</label><input name="10" type="namber" required></div>
+          <div class="field"><label>Угол нашивки, град:</label><input name="11" type="namber" required></div>
+          <div class="field"><label>Шаг нашивки:</label><input name="12" type="namber" required></div>
+          <div class="field"><label>Плотность нашивки:</label><input name="13" type="namber" required></div>
+        <p><input type="submit"></p>
+        </div>
+
+      </fieldset>
+ </form>
+ <div>
+     {% if result %}
+     <p> Прогноз: </p>
+     <p>{{result}}</p>
+     {% endif %}
+ </div>
+
+</body>
+</html>
